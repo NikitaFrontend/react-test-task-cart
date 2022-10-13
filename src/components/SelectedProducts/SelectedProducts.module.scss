@@ -1,0 +1,19 @@
+.container {
+  max-width: 506px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+
+  text-align: center;
+  padding: 25px 0px;
+  width: 505px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  background-color: #ffffff;
+
+  @media (max-width: 520px) {
+    width: 100%;
+  }
+}

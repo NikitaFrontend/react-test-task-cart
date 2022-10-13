@@ -1,0 +1,31 @@
+.inputBlock {
+  position: relative;
+}
+
+.input {
+  width: 505px;
+  border: none;
+  border-bottom: 1px solid #9f9f9f;
+  @media (max-width: 520px) {
+    width: 100%;
+  }
+}
+
+.inputLabel {
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #9f9f9f;
+}
+
+.input:focus ~ .inputLabel,
+.input:not(:placeholder-shown) ~ .inputLabel {
+  top: -8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}

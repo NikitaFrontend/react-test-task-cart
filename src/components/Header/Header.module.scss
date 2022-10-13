@@ -1,0 +1,116 @@
+.header {
+  height: 100%;
+  margin: 0px 0px 50px 0px;
+}
+
+.up {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px 39px 0px;
+  @media (max-width: 480px) {
+  }
+}
+.search {
+  display: flex;
+}
+.inputBlock {
+  position: relative;
+}
+.input {
+  margin: 0px 0px 0px 20px;
+  width: 250px;
+  border: none;
+  border-bottom: 1px solid #9f9f9f;
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.inputLabel {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #9f9f9f;
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.input:focus ~ .inputLabel,
+.input:not(:placeholder-shown) ~ .inputLabel {
+  top: -8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.adaptiveLogo {
+  display: none;
+  @media (max-width: 480px) {
+    display: block;
+  }
+}
+
+.upMenu {
+}
+
+.upList {
+  display: flex;
+}
+
+.upList li:not(:last-child) {
+  margin: 0px 22px 0px 0px;
+}
+.upLink {
+}
+
+.bottomMenu {
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottomList {
+  flex: 0 1 37%;
+}
+
+.logo {
+  flex: 0 1 26%;
+  text-align: center;
+}
+.bottomList {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 990px) {
+    display: block;
+    text-align: center;
+  }
+}
+
+.bottomLink {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #9f9f9f;
+}
+.bottomLink:hover {
+  color: #000000;
+}
+
+.active {
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.iconBurger {
+  display: none;
+  @media (max-width: 480px) {
+    display: block;
+    margin: 0px 16px 0px 0px;
+  }
+}
