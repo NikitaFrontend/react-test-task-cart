@@ -1,27 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Map } from '../Map';
+
 import styles from './Forms.module.scss';
 import { SelectedProducts } from '../SelectedProducts';
 import { Input } from '../Input';
 
-import { PlacesAutocomplete } from '../PlacesAutocomplete';
-import { useJsApiLoader } from '@react-google-maps/api';
-//=====================КАРТА===========================
-const API_KEY = process.env.REACT_APP_API_KEY;
-const defaultCenter = {
-  lat: -3.745,
-  lng: -38.523,
-};
-const libraries = ['places'];
-
 export const Forms = () => {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: API_KEY,
-    libraries,
-  });
-  //===================КАРТА=============================
-
   const initialValues = { address: '', name: '', email: '', tel: '', comment: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -111,8 +94,6 @@ export const Forms = () => {
         </div>
         <SelectedProducts />
         <button className={styles.button}>Купить</button>
-        {/* <PlacesAutocomplete isLoaded={isLoaded} />
-        {isLoaded ? <Map center={defaultCenter} /> : <h2>Loading</h2>} */}
       </form>
     </div>
   );
