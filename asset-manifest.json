@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-test-task-cart/static/css/main.51860860.css",
+    "main.js": "/react-test-task-cart/static/js/main.d7a71263.js",
+    "index.html": "/react-test-task-cart/index.html",
+    "main.51860860.css.map": "/react-test-task-cart/static/css/main.51860860.css.map",
+    "main.d7a71263.js.map": "/react-test-task-cart/static/js/main.d7a71263.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51860860.css",
+    "static/js/main.d7a71263.js"
+  ]
+}
