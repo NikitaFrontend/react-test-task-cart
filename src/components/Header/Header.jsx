@@ -1,12 +1,11 @@
-import React from 'react';
 import styles from './Header.module.scss';
-import { IconSearch } from './IconSearch.tsx';
-import { IconProfile } from './IconProfile.tsx';
-import { IconCart } from './IconCart.tsx';
-import { IconLike } from './IconLike.tsx';
-import { IconLogo } from './IconLogo.tsx';
-import { IconBurger } from './IconBurger.tsx';
-import { IconAdaptiveLogo } from './IconAdaptiveLogo.tsx';
+import { IconSearch } from '../../assets/icon/IconSearch.tsx';
+import { IconProfile } from '../../assets/icon/IconProfile.tsx';
+import { IconCart } from '../../assets/icon/IconCart.tsx';
+import { IconLike } from '../../assets/icon/IconLike.tsx';
+import { IconLogo } from '../../assets/icon/IconLogo.tsx';
+import { IconBurger } from '../../assets/icon/IconBurger.tsx';
+import { IconAdaptiveLogo } from '../../assets/icon/IconAdaptiveLogo.tsx';
 export const Header = () => {
   return (
     <header className={styles.header}>
@@ -19,7 +18,7 @@ export const Header = () => {
             <IconSearch />
           </div>
           <div className={styles.inputBlock}>
-            <input className={`${styles.input} ${styles.active}`} placeholder="  " />
+            <input className={`${styles.input} ${styles.active}`} placeholder="Поиск" />
             <label className={styles.inputLabel}>Поиск</label>
           </div>
         </div>
@@ -35,13 +34,11 @@ export const Header = () => {
             </li>
             <li>
               <a className={styles.upLink} href="">
-                {' '}
                 <IconLike />
               </a>
             </li>
             <li>
               <a className={styles.upLink} href="">
-                {' '}
                 <IconCart />
               </a>
             </li>

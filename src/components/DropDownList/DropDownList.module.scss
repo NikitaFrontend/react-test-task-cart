@@ -1,0 +1,67 @@
+.containerSelect {
+  margin: 0px 0px 34px 0px;
+  position: relative;
+}
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #9f9f9f;
+}
+
+.labelActive {
+  top: -12px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #9f9f9f;
+}
+
+.containerUp {
+  display: flex;
+  width: 505px;
+  border: none;
+  border-bottom: 1px solid #9f9f9f;
+  justify-content: space-between;
+  @media (max-width: 520px) {
+    width: 100%;
+  }
+}
+
+.containerUpActive {
+  border-bottom: 1px solid red;
+}
+
+.containerBottom {
+  padding: 20px 0px 20px 20px;
+  border: 1px solid #9f9f9f;
+  width: 505px;
+  @media (max-width: 520px) {
+    width: 100%;
+  }
+}
+.item:not(:last-child) {
+  margin: 0px 0px 20px 0px;
+}
+
+.item {
+  color: #9f9f9f;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.active {
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+}
+.error {
+  color: red;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}

@@ -15,37 +15,56 @@
 }
 .inputBlock {
   position: relative;
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 .input {
   margin: 0px 0px 0px 20px;
   width: 250px;
   border: none;
   border-bottom: 1px solid #9f9f9f;
-  @media (max-width: 480px) {
-    display: none;
-  }
+  padding: 3px 0px 0px 0px;
 }
+
+// .inputLabel {
+//   position: absolute;
+//   top: 0px;
+//   left: 20px;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 18px;
+//   line-height: 21px;
+//   color: #9f9f9f;
+// }
+
+// .input:focus ~ .inputLabel,
+// .input:not(:placeholder-shown) ~ .inputLabel {
+//   top: -8px;
+//   font-weight: 400;
+//   font-size: 12px;
+//   line-height: 14px;
+// }
 
 .inputLabel {
+  display: none;
+}
+.input:not(:placeholder-shown) ~ .inputLabel {
+  display: block;
   position: absolute;
-  top: 0px;
   left: 20px;
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-  color: #9f9f9f;
-  @media (max-width: 480px) {
-    display: none;
-  }
-}
-
-.input:focus ~ .inputLabel,
-.input:not(:placeholder-shown) ~ .inputLabel {
   top: -8px;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
+  color: #9f9f9f;
+}
+::placeholder {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #9f9f9f;
 }
 
 .adaptiveLogo {

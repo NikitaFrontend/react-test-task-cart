@@ -1,6 +1,16 @@
 .container {
   max-width: 506px;
 }
+.title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+}
+.items > div:not(:last-child) {
+  border: none;
+  border-bottom: 1px solid #9f9f9f;
+}
+
 .total {
   display: flex;
   justify-content: space-between;

@@ -1,19 +1,18 @@
 import styles from './Input.module.scss';
-import React from 'react';
 
-export const Input = ({ type, name, value, onChange, input, label, formErrors }) => {
+export const Input = ({ type, name, value, onChange, label, error }) => {
   return (
     <div className={styles.inputBlock}>
+      <div className={styles.error}>{error}</div>
       <input
         type={type}
         name={name}
-        placeholder=" "
+        placeholder={label}
         value={value}
         onChange={onChange}
-        className={styles.input}
+        className={`${styles.input} ${error !== undefined ? styles.inputActive : ''}`}
       />
       <label className={styles.inputLabel}>{label}</label>
-      <p>{formErrors}</p>
     </div>
   );
 };
