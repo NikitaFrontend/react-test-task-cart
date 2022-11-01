@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { IconMinus } from '../../assets/icon/IconMinus.tsx';
-import { IconPlus } from '../../assets/icon/IconPlus.tsx';
+import IconMinus from '../../assets/icon/IconMinus.svg';
+import IconPlus from '../../assets/icon/IconPlus.svg';
 import styles from './Product.module.scss';
 
 export const Product = ({ setTotal, price, id, img, name, type }) => {
@@ -38,11 +38,11 @@ export const Product = ({ setTotal, price, id, img, name, type }) => {
             <div className={styles.type}>{type}</div>
             <div className={styles.counter}>
               <div className={styles.minus} onClick={() => handleChangeAmount('minus')}>
-                <IconMinus />
+                <img src={IconMinus} alt="" />
               </div>
               <div className={styles.num}>{amout}</div>
               <div className={styles.plus} onClick={() => handleChangeAmount('plus')}>
-                <IconPlus />
+                <img src={IconPlus} alt="" />
               </div>
             </div>
           </div>

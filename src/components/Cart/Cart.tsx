@@ -1,7 +1,7 @@
 import styles from './Cart.module.scss';
 import { Forms } from '../Forms/Forms';
 
-export const Cart = () => {
+export const Cart: React.FC = () => {
   return (
     <div className={styles.container}>
       <nav className={styles.navigation}>

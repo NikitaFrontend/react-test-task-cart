@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Up } from '../../assets/icon/IconUp.tsx';
-import { Down } from '../../assets/icon/IconDown.tsx';
+import Up from '../../assets/icon/IconUp.svg';
+import Down from '../../assets/icon/IconDown.svg';
 import styles from './DropDownList.module.scss';
 
 export const DropDownList = ({ select, setSelect, error, removeSelectError }) => {
@@ -27,7 +27,9 @@ export const DropDownList = ({ select, setSelect, error, removeSelectError }) =>
             error !== undefined ? styles.containerUpActive : ''
           }`}>
           <div>{select}</div>
-          <div onClick={() => setOpenSelect(!openSelect)}>{openSelect ? <Down /> : <Up />}</div>
+          <div onClick={() => setOpenSelect(!openSelect)}>
+            <img src={openSelect ? Down : Up} alt="" />
+          </div>
         </div>
         {openSelect && (
           <div className={styles.containerBottom}>
