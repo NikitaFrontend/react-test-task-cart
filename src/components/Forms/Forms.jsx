@@ -44,7 +44,7 @@ export const Forms = () => {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(JSON.stringify(formValues));
+      alert(JSON.stringify(formValues));
     }
   }, [formErrors]);
 

@@ -10,6 +10,14 @@ export const DropDownList = ({ select, setSelect, error, removeSelectError }) =>
 
   const options = ['Пункт 1', 'Пункт 2', 'Пункт 3', 'Пункт 4', 'Пункт 5', 'Пункт 6'];
 
+  const onClickList = (option, index) => {
+    setActiveIndex(index);
+    setSelect(option);
+    setOpenSelect(false);
+    setLabel(true);
+    removeSelectError();
+  };
+
   return (
     <>
       <div className={styles.error}>{error}</div>
@@ -25,22 +33,16 @@ export const DropDownList = ({ select, setSelect, error, removeSelectError }) =>
           <div className={styles.containerBottom}>
             {options.map((option, index) => (
               <div
-                className={`${styles.item} ${activeIndex == index ? styles.active : ''}`}
+                className={`${styles.item} ${activeIndex === index ? styles.active : ''}`}
                 onClick={() => {
-                  setActiveIndex(index);
-                  setSelect(option);
-                  setOpenSelect(false);
-                  setLabel(true);
-                  removeSelectError();
+                  onClickList(option, index);
                 }}>
                 {option}
               </div>
             ))}
           </div>
         )}
-        <div className={`${styles.label} ${label == true ? styles.labelActive : ''}`}>
-          Тип упаковки
-        </div>
+        <div className={`${styles.label} ${label ? styles.labelActive : ''}`}>Тип упаковки</div>
       </div>
     </>
   );

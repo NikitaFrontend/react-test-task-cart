@@ -13,8 +13,8 @@ export const Products = () => {
   }, []);
 
   useEffect(() => {
-    const totalSrtart = productList.reduce((acc, productItem) => acc + productItem.price, 0);
-    setTotal(totalSrtart);
+    const totalStart = productList.reduce((acc, productItem) => acc + productItem.price, 0);
+    setTotal(totalStart);
   }, [productList]);
 
   return (
@@ -28,7 +28,7 @@ export const Products = () => {
             price={product.price}
             img={product.img}
             type={product.type}
-            setTotal={(e) => setTotal(total + e)}
+            setTotal={(value) => setTotal(total + value)}
           />
         ))}
       </div>
