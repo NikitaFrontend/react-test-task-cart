@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Forms.module.scss';
 import { Products } from '../Products/Products';
 import { Input } from '../Input/Input';
 import { DropDownList } from '../DropDownList/DropDownList';
-export const Forms = () => {
+export const Forms: React.FC = () => {
   const [select, setSelect] = useState('');
   const [formValues, setFormValues] = useState({
     address: '',
@@ -13,7 +13,17 @@ export const Forms = () => {
     comment: '',
     select: select,
   });
-  const [formErrors, setFormErrors] = useState({});
+
+  type inputsFormType = {
+    address?: string;
+    name?: string;
+    email?: string;
+    tel?: string;
+    select?: string;
+    comment?: string;
+  };
+
+  const [formErrors, setFormErrors] = useState<inputsFormType>({});
   const [isSubmit, setIsSubmit] = useState(false);
 
   useEffect(() => {
@@ -27,16 +37,18 @@ export const Forms = () => {
     }
   };
 
-  const onChangeInput = (e) => {
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+    //@ts-ignore
     if (formErrors[name]) {
+      //@ts-ignore
       delete formErrors[name];
       setFormErrors(formErrors);
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
@@ -48,8 +60,8 @@ export const Forms = () => {
     }
   }, [formErrors]);
 
-  const validate = (values) => {
-    const errors = {};
+  const validate = (values: inputsFormType) => {
+    const errors: inputsFormType = {};
     if (!values.address) {
       errors.address = 'Ошибка ввода';
     }
@@ -67,7 +79,7 @@ export const Forms = () => {
     }
     return errors;
   };
-  //error
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
@@ -82,7 +94,7 @@ export const Forms = () => {
           />
           <DropDownList
             select={select}
-            setSelect={(e) => setSelect(e)}
+            setSelect={(e: string) => setSelect(e)}
             error={formErrors.select}
             removeSelectError={removeSelectError}
           />

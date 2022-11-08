@@ -3,17 +3,25 @@ import IconMinus from '../../assets/icon/IconMinus.svg';
 import IconPlus from '../../assets/icon/IconPlus.svg';
 import styles from './Product.module.scss';
 
-export const Product = ({ setTotal, price, id, img, name, type }) => {
+type ProductType = {
+  setTotal: (num: number) => void;
+  price: number;
+  id: string;
+  img: string;
+  name: string;
+  type: string;
+};
+
+export const Product: React.FC<ProductType> = ({ setTotal, price, id, img, name, type }) => {
   const [amout, setAmmount] = useState(1);
   const [close, setClose] = useState(true);
-
   const handleDeleteProduct = () => {
     setTotal(-price * amout);
     setClose(false);
   };
 
-  const handleChangeAmount = (type) => {
-    if (type === 'minus') {
+  const handleChangeAmount = (minusOrPlus: any) => {
+    if (minusOrPlus === 'minus') {
       if (amout <= 1) return;
       setAmmount((prev) => prev - 1);
       setTotal(-price);

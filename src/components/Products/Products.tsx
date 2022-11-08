@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './Products.module.scss';
 import { Product } from '../Product/Product';
 
-export const Products = () => {
+export const Products: React.FC = () => {
   const [productList, setProductList] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -13,7 +13,10 @@ export const Products = () => {
   }, []);
 
   useEffect(() => {
-    const totalStart = productList.reduce((acc, productItem) => acc + productItem.price, 0);
+    const totalStart = productList.reduce(
+      (acc: number, productItem: any) => acc + productItem.price,
+      0,
+    );
     setTotal(totalStart);
   }, [productList]);
 
@@ -21,14 +24,14 @@ export const Products = () => {
     <div className={styles.container}>
       <h2 className={styles.title}>Выбранные товары:</h2>
       <div className={styles.items}>
-        {productList.map((product) => (
+        {productList.map((product: any) => (
           <Product
             id={product.id}
             name={product.name}
             price={product.price}
             img={product.img}
             type={product.type}
-            setTotal={(value) => setTotal(total + value)}
+            setTotal={(value: number) => setTotal(total + value)}
           />
         ))}
       </div>

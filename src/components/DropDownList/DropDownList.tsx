@@ -3,14 +3,26 @@ import Up from '../../assets/icon/IconUp.svg';
 import Down from '../../assets/icon/IconDown.svg';
 import styles from './DropDownList.module.scss';
 
-export const DropDownList = ({ select, setSelect, error, removeSelectError }) => {
+type DropDownListType = {
+  select: string;
+  setSelect: (option: string) => void;
+  error: string | undefined;
+  removeSelectError: () => void;
+};
+
+export const DropDownList: React.FC<DropDownListType> = ({
+  select,
+  setSelect,
+  error,
+  removeSelectError,
+}) => {
   const [openSelect, setOpenSelect] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [label, setLabel] = useState(false);
 
   const options = ['Пункт 1', 'Пункт 2', 'Пункт 3', 'Пункт 4', 'Пункт 5', 'Пункт 6'];
 
-  const onClickList = (option, index) => {
+  const onClickList = (option: string, index: number) => {
     setActiveIndex(index);
     setSelect(option);
     setOpenSelect(false);

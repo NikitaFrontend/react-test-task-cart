@@ -1,6 +1,15 @@
 import styles from './Input.module.scss';
 
-export const Input = ({ type, name, value, onChange, label, error }) => {
+type InputType = {
+  type: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+  error: string | undefined;
+};
+
+export const Input: React.FC<InputType> = ({ type, name, value, onChange, label, error }) => {
   return (
     <div className={styles.inputBlock}>
       <div className={styles.error}>{error}</div>
