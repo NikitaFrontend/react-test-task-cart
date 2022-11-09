@@ -1,37 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './Products.module.scss';
 import { Product } from '../Product/Product';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts, calculateTotals } from '../../redux/slice/products';
 
 export const Products: React.FC = () => {
-  const [productList, setProductList] = useState([]);
-  const [total, setTotal] = useState(0);
-
+  const dispatch = useDispatch();
+  //@ts-ignore
+  const { items, total } = useSelector((state) => state.products);
+  console.log(total);
+  const getPizzas = async () => {
+    //@ts-ignore
+    dispatch(fetchProducts());
+  };
   useEffect(() => {
-    fetch('https://run.mocky.io/v3/59f47e8e-2a09-48c3-8a1d-0af8e5817f7c')
-      .then((res) => res.json())
-      .then((json) => setProductList(JSON.parse(json)));
+    getPizzas();
   }, []);
 
   useEffect(() => {
-    const totalStart = productList.reduce(
-      (acc: number, productItem: any) => acc + productItem.price,
-      0,
-    );
-    setTotal(totalStart);
-  }, [productList]);
+    dispatch(calculateTotals());
+  }, [items]);
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Выбранные товары:</h2>
       <div className={styles.items}>
-        {productList.map((product: any) => (
+        {items.map((product: any) => (
           <Product
+            amount={product.amount}
             id={product.id}
             name={product.name}
             price={product.price}
             img={product.img}
             type={product.type}
-            setTotal={(value: number) => setTotal(total + value)}
           />
         ))}
       </div>
